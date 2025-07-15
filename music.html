@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reproductor de Música</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .player {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="player">
+    <h2>🎵 Reproductor de Música</h2>
+
+    <input type="file" accept="audio/*" id="fileInput"><br>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <label>
+      <input type="checkbox" id="loopCheckbox">
+      Repetir en bucle
+    </label>
+
+    <button onclick="playAudio()">Reproducir</button>
+    <button onclick="pauseAudio()">Pausar</button>
+    <button onclick="stopAudio()">Detener</button>
+  </div>
+
+  <script>
+    const audio = document.getElementById("audioPlayer");
+    const loopCheckbox = document.getElementById("loopCheckbox");
+    const fileInput = document.getElementById("fileInput");
+
+    fileInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        audio.src = url;
+        audio.load();
+      }
+    });
+
+    loopCheckbox.addEventListener("change", function () {
+      audio.loop = this.checked;
+    });
+
+    function playAudio() {
+      audio.play();
+    }
+
+    function pauseAudio() {
+      audio.pause();
+    }
+
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  </script>
+
+</body>
+</html>
