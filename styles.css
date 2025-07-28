@@ -1,44 +1,74 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f3f3f3;
-  text-align: center;
-  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.player {
+.container {
   background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: inline-block;
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  margin-bottom: 15px;
 }
 
 audio {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
+.controls button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 14px;
   border: none;
-  background: #4CAF50;
+  border-radius: 8px;
+  background-color: #4CAF50;
   color: white;
   cursor: pointer;
 }
 
-button:hover {
-  background: #45a049;
+.controls button:hover {
+  background-color: #388e3c;
 }
 
 label {
   display: block;
-  margin-top: 15px;
-  font-size: 16px;
+  margin: 15px 0;
 }
 
-input[type="file"] {
-  margin-top: 10px;
+#playlist {
+  list-style: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#playlist li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+#playlist li:hover {
+  background-color: #e0e0e0;
+}
+
+#currentSong {
+  margin: 10px 0;
+  font-weight: bold;
 }
